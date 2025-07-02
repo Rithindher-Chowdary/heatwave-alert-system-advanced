@@ -29,18 +29,15 @@
     <h1>Heat Wave Alert System</h1>
     <input type="text" id="cityInput" placeholder="Enter city name" />
     <div id="userSelection" style="display: none;">
-  <p><strong>👥Select your user type:</strong></p>
+  <p><strong>👥 Select your user type:</strong></p>
   <button onclick="selectUserType('general')">General</button>
   <button onclick="selectUserType('elderly')">Elderly</button>
   <button onclick="selectUserType('outdoor')">Outdoor Worker</button>
 </div>
 
-
-
-
+<button id="alertButton" onclick="requestNotificationPermission()">🔔 Enable Alerts</button>
 
     <button onclick="checkTemperature()">Check Temperature</button>
-    <button id="alertButton" onclick="requestNotificationPermission()">🔔 Enable Alerts</button>
     <div id="result"></div>
   </div>
   <script src="script.js"></script>
