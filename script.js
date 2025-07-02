@@ -111,9 +111,6 @@ async function checkTemperature() {
 }
 
 function requestNotificationPermission() {
-  const selectedType = document.getElementById('userType').value;
-localStorage.setItem('userType', selectedType);
-
   const alertBtn = document.getElementById("alertButton");
 
   if ("Notification" in window) {
@@ -124,14 +121,16 @@ localStorage.setItem('userType', selectedType);
           icon: "icon-192.png"
         });
 
-        alertBtn.style.display = "none"; // ✅ Hide after enabling
+        alertBtn.style.display = "none";
       } else if (permission === "denied") {
         alert("❌ Notification permission denied.");
-        alertBtn.style.display = "none"; // ✅ Hide after denied too
+        alertBtn.style.display = "none";
       }
     });
   }
 }
+
+
 
 
 
@@ -201,35 +200,23 @@ window.onload = () => {
     alertBtn.style.display = "none";
   }
 
-  // 👥 Hide user type selector after selection
-  const userTypeSelect = document.getElementById("userTypeSelect");
+  // 👥 Show or hide user type buttons based on saved value
+  const userSelectionDiv = document.getElementById("userSelection");
   const storedUserType = localStorage.getItem("userType");
 
-  if (storedUserType) {
-    userTypeSelect.style.display = "none";
+  if (!storedUserType) {
+    userSelectionDiv.style.display = "block";
+  } else {
+    userSelectionDiv.style.display = "none";
   }
-
-  // ✅ On change, store and hide selector
-  userTypeSelect.addEventListener("change", () => {
-    const selected = userTypeSelect.value;
-    if (selected !== "") {
-      localStorage.setItem("userType", selected);
-      userTypeSelect.style.display = "none";
-    }
-  });
-  const userSelectionDiv = document.getElementById("userSelection");
-if (!localStorage.getItem("userType")) {
-  userSelectionDiv.style.display = "block";
-} else {
-  userSelectionDiv.style.display = "none";
-}
-
 };
+
 function selectUserType(type) {
   localStorage.setItem("userType", type);
   document.getElementById("userSelection").style.display = "none";
   console.log("✅ User type selected:", type);
 }
+
 
 
 
