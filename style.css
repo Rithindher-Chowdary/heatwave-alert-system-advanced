@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #ffeaa7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.tip-card {
+  margin-top: 15px;
+  padding: 15px;
+  background: #ffeaa7;
+  border-left: 6px solid #d63031;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.tip-card ul {
+  padding-left: 20px;
+}
