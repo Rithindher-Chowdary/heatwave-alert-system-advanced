@@ -194,17 +194,17 @@ if ('serviceWorker' in navigator && 'periodicSync' in navigator.serviceWorker) {
 window.onload = () => {
   autoDetectCity();
 
-  // 🔔 Hide alert button if permission already granted/denied
   const alertBtn = document.getElementById("alertButton");
+  const userSelectionDiv = document.getElementById("userSelection");
+  const userType = localStorage.getItem("userType");
+
   if (Notification.permission === "granted" || Notification.permission === "denied") {
     alertBtn.style.display = "none";
+  } else {
+    alertBtn.style.display = "inline-block";
   }
 
-  // 👥 Show or hide user type buttons based on saved value
-  const userSelectionDiv = document.getElementById("userSelection");
-  const storedUserType = localStorage.getItem("userType");
-
-  if (!storedUserType) {
+  if (!userType) {
     userSelectionDiv.style.display = "block";
   } else {
     userSelectionDiv.style.display = "none";
@@ -214,8 +214,10 @@ window.onload = () => {
 function selectUserType(type) {
   localStorage.setItem("userType", type);
   document.getElementById("userSelection").style.display = "none";
+  document.getElementById("alertButton").style.display = "inline-block";
   console.log("✅ User type selected:", type);
 }
+
 
 
 
